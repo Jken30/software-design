@@ -32,6 +32,8 @@
             txtArrayInput = new TextBox();
             lblSumResult = new Label();
             CalculateSum = new Button();
+            CalculateFibonacci = new Button();
+            button1 = new Button();
             SuspendLayout();
             // 
             // btnCalculateSum
@@ -55,7 +57,7 @@
             // lblSumResult
             // 
             lblSumResult.AutoSize = true;
-            lblSumResult.Location = new Point(233, 67);
+            lblSumResult.Location = new Point(235, 64);
             lblSumResult.Name = "lblSumResult";
             lblSumResult.Size = new Size(7, 15);
             lblSumResult.TabIndex = 2;
@@ -71,11 +73,33 @@
             CalculateSum.UseVisualStyleBackColor = true;
             CalculateSum.Click += CalculateSum_Click;
             // 
+            // CalculateFibonacci
+            // 
+            CalculateFibonacci.Location = new Point(51, 194);
+            CalculateFibonacci.Name = "CalculateFibonacci";
+            CalculateFibonacci.Size = new Size(112, 23);
+            CalculateFibonacci.TabIndex = 4;
+            CalculateFibonacci.Text = "Fibonacci Calculation";
+            CalculateFibonacci.UseVisualStyleBackColor = true;
+            CalculateFibonacci.Click += CalculateFibonacci_Click;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(51, 240);
+            button1.Name = "button1";
+            button1.Size = new Size(112, 23);
+            button1.TabIndex = 5;
+            button1.Text = "Power Calculation";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(498, 382);
+            Controls.Add(button1);
+            Controls.Add(CalculateFibonacci);
             Controls.Add(CalculateSum);
             Controls.Add(lblSumResult);
             Controls.Add(txtArrayInput);
@@ -93,5 +117,7 @@
         private TextBox txtArrayInput;
         private Label lblSumResult;
         private Button CalculateSum;
+        private Button CalculateFibonacci;
+        private Button button1;
     }
 }

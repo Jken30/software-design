@@ -1,4 +1,5 @@
-using System.Reflection;
+using System;
+using System.Windows.Forms;
 
 namespace lab3
 {
@@ -9,6 +10,7 @@ namespace lab3
             InitializeComponent();
         }
 
+
         public class Book
         {
             public string Title { get; set; }
@@ -18,20 +20,7 @@ namespace lab3
             {
                 return $"{Title} by {Author}";
             }
-
         }
-
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-
-
-
 
 
         public class Magazine : Book
@@ -44,35 +33,52 @@ namespace lab3
         }
 
 
+        public class Textbook : Book
+        {
+            public string Subject { get; set; }
+
+            public override string GetInfo()
+            {
+                return $"{Title} by {Author}, Subject: {Subject}";
+            }
+        }
 
 
+        public class AudioBook : Book
+        {
+            public double Duration { get; set; }
+            public string Narrator { get; set; }
+
+            public override string GetInfo()
+            {
+                return $"{Title} by {Author}, Duration: {Duration} hours, Narrator: {Narrator}";
+            }
+        }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+        private void Form1_Load(object sender, EventArgs e)
+        {
+        }
 
 
         private void ShowInfo_Click(object sender, EventArgs e)
         {
 
-            Book mybook = new Magazine {
-                Title = "Teck Weekly",
-                Author = "John Doe", IssueNumber = 45
-
+            Book[] books = new Book[]
+            {
+                new Magazine { Title = "Tech Weekly", Author = "John Doe", IssueNumber = 45 },
+                new Textbook { Title = "C# Basic", Author = "Jane Smith", Subject = "Programming" },
+                new AudioBook { Title = "Stracture of Java", Author = "Alice Johnson", Duration = 12.5, Narrator = "David Lee" }
             };
 
-            MessageBox.Show(mybook.GetInfo());
+            string allBookinfo = "";
+
+            foreach (var book in books)
+            {
+                allBookinfo += book.GetInfo() + "\n";
+            }
+
+            MessageBox.Show(allBookinfo);
         }
     }
 }

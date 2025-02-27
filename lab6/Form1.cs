@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace lab6
 {
     public partial class Form1 : Form
@@ -13,7 +15,7 @@ namespace lab6
             using (var context = new BookstoreContext())
             {
                 var books = await context.Books.Include(b => b.Author)
-                                               .Select(b => $"{b.title} by {b.Author.Name}")
+                                               .Select(b => $"{b.Title} by {b.Author.Name}")
                                                .ToListAsync();
 
                 return books;

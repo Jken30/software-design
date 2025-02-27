@@ -75,6 +75,7 @@
             btnAddBook.TabIndex = 4;
             btnAddBook.Text = "Add";
             btnAddBook.UseVisualStyleBackColor = true;
+            btnAddBook.Click += btnAddBook_Click;
             // 
             // add
             // 
@@ -88,6 +89,7 @@
             Controls.Add(label1);
             Name = "add";
             Text = "add";
+            Load += add_Load;
             ResumeLayout(false);
             PerformLayout();
         }
